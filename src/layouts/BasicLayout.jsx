@@ -3,15 +3,17 @@
  * You can view component api by:
  * https://github.com/ant-design/ant-design-pro-layout
  */
-import ProLayout, { SettingDrawer } from '@ant-design/pro-layout';
-import React, { useEffect } from 'react';
-import Link from 'umi/link';
-import { connect } from 'dva';
-import { formatMessage } from 'umi-plugin-react/locale';
-import Authorized from '@/utils/Authorized';
-import RightContent from '@/components/GlobalHeader/RightContent';
-import { isAntDesignPro } from '@/utils/utils';
-import Iconfont from '../components/Iconfont';
+import ProLayout, { SettingDrawer } from "@ant-design/pro-layout";
+import React, { useEffect } from "react";
+import Link from "umi/link";
+import { connect } from "dva";
+import { formatMessage } from "umi-plugin-react/locale";
+import Authorized from "@/utils/Authorized";
+import RightContent from "@/components/GlobalHeader/RightContent";
+import { isAntDesignPro } from "@/utils/utils";
+import Iconfont from "../components/Iconfont";
+import logoSVG from "../assets/logo.svg";
+import logoTextSVG from "../assets/logoText.svg";
 /**
  * use Authorized check all menu item
  */
@@ -35,7 +37,7 @@ const BasicLayout = props => {
   useEffect(() => {
     if (dispatch) {
       dispatch({
-        type: 'settings/getSetting'
+        type: "settings/getSetting"
       });
     }
   }, []);
@@ -43,19 +45,31 @@ const BasicLayout = props => {
   const handleMenuCollapse = payload =>
     dispatch &&
     dispatch({
-      type: 'global/changeLayoutCollapsed',
+      type: "global/changeLayoutCollapsed",
       payload
     });
 
   const logo = (
     <Link to="/live">
-      <Iconfont
-        type="mark"
+      <img
+        src={logoSVG}
         style={{
-          verticalAlign: '-0.53em',
-          width: '1.3em',
-          height: '1.3em',
-          color: '#0d6fde'
+          verticalAlign: "-0.45em",
+          width: "2.7em",
+          height: "2.7em"
+        }}
+      />
+    </Link>
+  );
+  const logoText = (
+    <Link to="/live">
+      <img
+        src={logoTextSVG}
+        style={{
+          width: "5.3em",
+          height: "5.3em",
+          marginTop: "-0.95em",
+          marginLeft: "-5px"
         }}
       />
     </Link>
@@ -64,7 +78,7 @@ const BasicLayout = props => {
     <>
       <ProLayout
         logo={logo}
-        title={'OMS'}
+        title={logoText}
         onCollapse={handleMenuCollapse}
         menuItemRender={(menuItemProps, defaultDom) => {
           return <Link to={menuItemProps.path}>{defaultDom}</Link>;
@@ -72,10 +86,10 @@ const BasicLayout = props => {
         breadcrumbRender={(routers = []) => {
           return [
             {
-              path: '/live',
+              path: "/live",
               breadcrumbName: formatMessage({
-                id: 'menu.live',
-                defaultMessage: 'Live'
+                id: "menu.live",
+                defaultMessage: "Live"
               })
             },
             ...routers
@@ -84,7 +98,7 @@ const BasicLayout = props => {
         itemRender={(route, params, routes, paths) => {
           const first = routes.indexOf(route) === 0;
           return first ? (
-            <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
+            <Link to={paths.join("/")}>{route.breadcrumbName}</Link>
           ) : (
             <span>{route.breadcrumbName}</span>
           );

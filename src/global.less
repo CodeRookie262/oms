@@ -1,4 +1,4 @@
-@import './variable.less';
+@import "./variable.less";
 
 body {
   text-rendering: optimizeLegibility;
@@ -11,6 +11,7 @@ ol {
   list-style: none;
 }
 
+// iconfont
 .iconfont {
   width: 1em;
   height: 1em;
@@ -22,10 +23,13 @@ ol {
 }
 
 :global {
+  // sidebar
   .ant-layout-has-sider {
     .ant-pro-sider-menu-logo {
       background: @white;
       box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+      padding-left: 16px;
+      // text-align: center;
     }
 
     .ant-layout-sider {
@@ -34,24 +38,24 @@ ol {
 
     .ant-pro-sider-menu-logo h1 {
       color: @primary-color;
-      margin-top: 2px;
-      font-weight: bold;
-      font-size: 22px;
-      letter-spacing: 0.3px;
+      margin: 0;
     }
     .ant-pro-sider-menu-sider {
       box-shadow: 2px 0px 7px 0px rgba(0, 21, 41, 0.09);
+      max-width: 230px;
     }
   }
   .ant-menu-root.ant-menu-inline {
     border: none !important;
   }
 
+  // timepicker clear
   .ant-time-picker-clear,
   .ant-calendar-picker-clear {
     color: @text-color-secondary !important;
   }
 
+  // pagination
   .ant-pagination .ant-pagination-item-active {
     background: @primary-color;
     a {
