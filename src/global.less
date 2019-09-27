@@ -1,0 +1,66 @@
+@import './variable.less';
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.iconfont {
+  width: 1em;
+  height: 1em;
+  font-size: 2em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  color: @text-color-secondary;
+}
+
+:global {
+  .ant-layout-has-sider {
+    .ant-pro-sider-menu-logo {
+      background: @white;
+      box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+    }
+
+    .ant-layout-sider {
+      background: @white;
+    }
+
+    .ant-pro-sider-menu-logo h1 {
+      color: @primary-color;
+      margin-top: 2px;
+      font-weight: bold;
+      font-size: 22px;
+      letter-spacing: 0.3px;
+    }
+    .ant-pro-sider-menu-sider {
+      box-shadow: 2px 0px 7px 0px rgba(0, 21, 41, 0.09);
+    }
+  }
+  .ant-menu-root.ant-menu-inline {
+    border: none !important;
+  }
+
+  .ant-time-picker-clear,
+  .ant-calendar-picker-clear {
+    color: @text-color-secondary !important;
+  }
+
+  .ant-pagination .ant-pagination-item-active {
+    background: @primary-color;
+    a {
+      color: #fff;
+    }
+    &:hover {
+      a {
+        color: #fff;
+      }
+    }
+  }
+}

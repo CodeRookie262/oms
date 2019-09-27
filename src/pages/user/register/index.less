@@ -1,0 +1,126 @@
+.imgBox {
+  background-color: #d7eaff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px 0 0 10px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .img1 {
+    height: 30px;
+    img {
+      width: 101px;
+      height: 30px;
+    }
+  }
+  .img2 {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 333px;
+      height: 248px;
+      align-self: center;
+    }
+  }
+}
+
+.fromBox {
+  width: 80%;
+  max-width: 432px;
+  height: 432px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+  :global {
+    .ant-tabs-nav {
+      font-size: 18px;
+    }
+
+    // .ant-form-item {
+    //   margin-bottom: 32px;
+    // }
+    .ant-input {
+      border: solid 1px #eff2f6;
+    }
+    .ant-select-selection__placeholder {
+      color: #ccd1d9;
+      font-size: 14px;
+    }
+
+    .has-error .ant-input-group-addon,
+    .ant-input-group-addon {
+      border-color: #eff2f6 !important;
+      color: #495b70 !important;
+      background: #fff !important;
+    }
+
+    .ant-tabs-ink-bar {
+      left: 39px !important;
+      width: 22px !important;
+      height: 4px !important;
+      border-radius: 3px !important;
+      margin: 0 auto !important;
+    }
+  }
+}
+
+:global {
+  .ant-btn-lg {
+    font-size: 14px;
+  }
+
+  .ant-tabs-bar {
+    border: none;
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .ant-modal-confirm-body .anticon {
+    display: none;
+  }
+
+  .ant-modal-content {
+    text-align: center;
+  }
+
+  .ant-modal-confirm .ant-modal-confirm-btns {
+    float: none !important;
+  }
+
+  .ant-modal-confirm-body
+    > .anticon
+    + .ant-modal-confirm-title
+    + .ant-modal-confirm-content {
+    margin-left: 0px !important;
+  }
+}
+
+.SuccessModal {
+  img {
+    width: 60px;
+    height: 62px;
+  }
+
+  .tip {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #2e313c;
+  }
+}
+
+// 适配
+@media screen and (max-width: 1120px) {
+  .imgBox {
+    display: none;
+  }
+  .logFrom {
+    width: 100%;
+    margin: 0 auto;
+  }
+}

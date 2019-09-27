@@ -1,0 +1,107 @@
+.imgBox {
+  background-color: #d7eaff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px 0 0 10px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .img1 {
+    height: 30px;
+    img {
+      width: 101px;
+      height: 30px;
+    }
+  }
+  .img2 {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 333px;
+      height: 248px;
+      align-self: center;
+    }
+  }
+}
+
+.fromBox {
+  width: 80%;
+  max-width: 427px;
+  height: 431px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+
+  :global {
+    // .ant-form-item {
+    //   margin-bottom: 32px;
+    // }
+    .ant-input {
+      border: solid 1px #eff2f6;
+    }
+    .ant-select-selection__placeholder {
+      color: #ccd1d9;
+      font-size: 14px;
+    }
+  }
+
+  h1 {
+    font-size: 34px;
+    color: #041f40;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .other {
+    width: 202px;
+    height: auto;
+    margin: 63px auto;
+
+    .title {
+      text-align: center;
+      span {
+        margin: 0 9px;
+        color: #495b70;
+      }
+      i {
+        width: 43px;
+        height: 1px;
+        display: inline-block;
+        vertical-align: middle;
+        background-color: #eff2f6;
+      }
+    }
+
+    .weichat {
+      color: #5fc84d;
+    }
+    .qq {
+      color: #50c8fd;
+    }
+    .weibo {
+      color: #fc6622;
+    }
+  }
+}
+
+:global {
+  .ant-btn-lg {
+    font-size: 14px;
+  }
+}
+
+// 适配
+@media screen and (max-width: 1120px) {
+  .imgBox {
+    display: none;
+  }
+  .logFrom {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
