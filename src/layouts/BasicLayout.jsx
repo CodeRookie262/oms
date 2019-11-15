@@ -54,7 +54,7 @@ const BasicLayout = props => {
       <img
         src={logoSVG}
         style={{
-          verticalAlign: "-0.45em",
+          verticalAlign: "-1.05em",
           width: "2.7em",
           height: "2.7em"
         }}
@@ -78,7 +78,7 @@ const BasicLayout = props => {
     <>
       <ProLayout
         logo={logo}
-        title={logoText}
+        title={`英荔播课`}
         onCollapse={handleMenuCollapse}
         menuItemRender={(menuItemProps, defaultDom) => {
           return <Link to={menuItemProps.path}>{defaultDom}</Link>;

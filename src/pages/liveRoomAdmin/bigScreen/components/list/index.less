@@ -1,0 +1,39 @@
+.panel {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 20px -1%;
+  .listBox {
+    min-width: 200px;
+    min-height: 100px;
+    flex: 0 0 23%;
+    margin: 0 1% 20px;
+    position: relative;
+    border-radius: 8px;
+    // cursor: pointer;
+    .imgPanel {
+      position: relative;
+      height: 12vw;
+      .vedio {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+        object-fit: fill;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1340px) {
+  .listBox {
+    flex: 0 0 30%;
+    margin: 0 1.5% 20px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .listBox {
+    flex: 0 0 46%;
+    margin: 0 2% 20px;
+  }
+}
