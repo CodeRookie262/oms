@@ -1,19 +1,21 @@
 import React, { Component } from "react";
-import Link from "umi/link";
-import router from "umi/router";
+// import Link from "umi/link";
+// import router from "umi/router";
 import { Row, Col, Tooltip } from "antd";
 import { connect } from "dva";
-import Iconfont from "@/components/Iconfont";
+import {
+  Player,
+  ControlBar,
+  ReplayControl,
+  ForwardControl,
+  CurrentTimeDisplay,
+  TimeDivider,
+  PlaybackRateMenuButton,
+  VolumeMenuButton
+} from "video-react";
+// import Iconfont from "@/components/Iconfont";
 import defaultImg from "../../../../../assets/default.png";
-import testVedio1 from "../../../../../assets/testVedio-1.mp4";
 import styles from "./index.less";
-
-const dataSource = [
-  {
-    url:
-      "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1573536957289&di=9e7713ab30757a4eae3cdca2d22b51d3&imgtype=0&src=http%3A%2F%2Fimg.alicdn.com%2Fimgextra%2Fi1%2FTB2u2ADaHH8F1JjSspoXXXWYXXa_%2521%2521412124966.jpg_400x400.jpg"
-  }
-];
 
 @connect(({}) => ({}))
 class HelpList extends Component {
@@ -43,21 +45,33 @@ class HelpList extends Component {
                   xl={10}
                 >
                   <div className={styles.imgPanel}>
-                    <video
-                      src={testVedio1}
+                    <Player
+                      muted
+                      autoPlay
+                      // height={`100%`}
+                      // width="100%"
+                      // fluid={false}
+                      playsInline={true}
+                      className={styles.vedio}
                       poster={
                         (item.room_poster && item.room_poster) || defaultImg
                       } // 视频封面
-                      // controls="controls"
-                      className={styles.vedio}
-                      preload="auto"
-                      autoplay="autoplay"
-                      muted
-                      loop="loop"
                     >
-                      您的浏览器不支持 video 标签。
-                    </video>
-                    {/* <img src={item.room_poster} /> */}
+                      <source
+                        src={`http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4`}
+                      />
+                      <ControlBar style={{ display: "none" }}>
+                        <ReplayControl seconds={10} order={1.1} />
+                        <ForwardControl seconds={30} order={1.2} />
+                        <CurrentTimeDisplay order={4.1} />
+                        <TimeDivider order={4.2} />
+                        <PlaybackRateMenuButton
+                          rates={[5, 2, 1, 0.5, 0.1]}
+                          order={7.1}
+                        />
+                        <VolumeMenuButton disabled />
+                      </ControlBar>
+                    </Player>
                   </div>
                 </Col>
               </Tooltip>

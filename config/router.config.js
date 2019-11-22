@@ -1,3 +1,14 @@
+const MenuIcon = ({ imgStyle, imgSrc }) => (
+  <Icon
+    component={() => (
+      <img
+        style={{ width: "1em", height: "1em", ...imgStyle }}
+        src={`${imgSrc}`}
+        alt="icon"
+      />
+    )}
+  />
+);
 export default [
   {
     path: "/",
@@ -61,11 +72,11 @@ export default [
         Routes: ["src/pages/Authorized"],
         authority: ["user"],
         routes: [
-          // { path: "/", redirect: "/releaseCenter/help" },
+          { path: "/", redirect: "/releaseCenter/help" },
           {
             name: "release-center",
-            icon: "video-camera",
-            path: "/releaseCenter",
+            icon: "question-circle",
+            path: "/releaseCenter/help",
             routes: [
               {
                 name: "help",
@@ -77,7 +88,8 @@ export default [
           {
             name: "live-room-admin",
             icon: "video-camera",
-            path: "/liveRoomAdmin",
+
+            path: "/liveRoomAdmin/bigScreen",
             routes: [
               {
                 name: "bigScreen",

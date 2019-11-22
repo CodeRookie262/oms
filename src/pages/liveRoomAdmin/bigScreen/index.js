@@ -16,7 +16,7 @@ class HelpCenter extends Component {
     this.props.dispatch({
       type: "bigScreen/getBigSreenList",
       payload: {
-        pageSize: 20,
+        pageSize: 1000,
         page: 1,
         key: 2
       }
@@ -30,7 +30,18 @@ class HelpCenter extends Component {
         <div>
           <Header />
         </div>
-
+        <div
+          style={{
+            background: "white",
+            marginLeft: "-24px",
+            padding: "15px 24px",
+            fontSize: "20px",
+            color: "#2e313c",
+            fontFamily: "PingFangSC-Medium"
+          }}
+        >
+          直播大屏
+        </div>
         <List currentBigSreenList={bigSreenList} />
       </Fragment>
     );
