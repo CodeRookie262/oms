@@ -3,21 +3,31 @@
  * You can view component api by:
  * https://github.com/ant-design/ant-design-pro-layout
  */
-import ProLayout, { SettingDrawer } from "@ant-design/pro-layout";
-import React, { useEffect } from "react";
-import Link from "umi/link";
-import { connect } from "dva";
-import { formatMessage } from "umi-plugin-react/locale";
-import Authorized from "@/utils/Authorized";
-import RightContent from "@/components/GlobalHeader/RightContent";
-import { isAntDesignPro } from "@/utils/utils";
-import Iconfont from "../components/Iconfont";
-import logoSVG from "../assets/logo.svg";
-import logoTextSVG from "../assets/logoText.svg";
+import ProLayout, { SettingDrawer } from '@ant-design/pro-layout';
+import React, { useEffect } from 'react';
+import Link from 'umi/link';
+import { connect } from 'dva';
+import { formatMessage } from 'umi-plugin-react/locale';
+import Authorized from '@/utils/Authorized';
+import RightContent from '@/components/GlobalHeader/RightContent';
+import logoSVG from '../assets/logo.svg';
+import logoTextSVG from '../assets/logoText.svg';
 /**
  * use Authorized check all menu item
  */
-
+const logoStyle = {
+  verticalAlign: '-7px',
+  width: '38px',
+  height: '38px',
+  display: 'inherit'
+};
+const logoTextStyle = {
+  width: '100px',
+  height: '100px',
+  marginTop: '-30px',
+  marginLeft: '-6px',
+  verticalAlign: '-38px'
+};
 const menuDataRender = menuList =>
   menuList.map(item => {
     const localItem = {
@@ -37,7 +47,7 @@ const BasicLayout = props => {
   useEffect(() => {
     if (dispatch) {
       dispatch({
-        type: "settings/getSetting"
+        type: 'settings/getSetting'
       });
     }
   }, []);
@@ -45,33 +55,17 @@ const BasicLayout = props => {
   const handleMenuCollapse = payload =>
     dispatch &&
     dispatch({
-      type: "global/changeLayoutCollapsed",
+      type: 'global/changeLayoutCollapsed',
       payload
     });
-
   const logo = (
-    <Link to="/live">
-      <img
-        src={logoSVG}
-        style={{
-          verticalAlign: "-1.05em",
-          width: "2.7em",
-          height: "2.7em"
-        }}
-      />
+    <Link to="/">
+      <img src={logoSVG} style={logoStyle} />
     </Link>
   );
   const logoText = (
-    <Link to="/live">
-      <img
-        src={logoTextSVG}
-        style={{
-          width: "5.3em",
-          height: "5.3em",
-          marginTop: "-0.95em",
-          marginLeft: "-5px"
-        }}
-      />
+    <Link to="/">
+      <img src={logoTextSVG} style={logoTextStyle} />
     </Link>
   );
   return (
@@ -80,16 +74,27 @@ const BasicLayout = props => {
         logo={logo}
         title={`英荔播课`}
         onCollapse={handleMenuCollapse}
+        menuHeaderRender={(logoDom, titleDom) => {
+          return (
+            <>
+              {logo}
+              {logoText}
+            </>
+          );
+        }}
         menuItemRender={(menuItemProps, defaultDom) => {
+          if (menuItemProps.isUrl || menuItemProps.children) {
+            return defaultDom;
+          }
           return <Link to={menuItemProps.path}>{defaultDom}</Link>;
         }}
         breadcrumbRender={(routers = []) => {
           return [
             {
-              path: "/live",
+              path: '/',
               breadcrumbName: formatMessage({
-                id: "menu.live",
-                defaultMessage: "Live"
+                id: 'menu.release-center',
+                defaultMessage: '/'
               })
             },
             ...routers
@@ -98,7 +103,7 @@ const BasicLayout = props => {
         itemRender={(route, params, routes, paths) => {
           const first = routes.indexOf(route) === 0;
           return first ? (
-            <Link to={paths.join("/")}>{route.breadcrumbName}</Link>
+            <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
           ) : (
             <span>{route.breadcrumbName}</span>
           );

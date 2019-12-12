@@ -7,7 +7,7 @@ import Iconfont from '@/components/Iconfont';
 import styles from './index.less';
 
 import HeaderLink from '../../../components/HeaderLink';
-import List from './components/list';
+import List from './components/list/index.js';
 
 const routes = [
   {
@@ -15,25 +15,25 @@ const routes = [
     breadcrumbName: '首页'
   },
   {
-    path: '/help',
-    breadcrumbName: '帮助中心'
+    path: '/list',
+    breadcrumbName: '组织'
   },
   {
-    breadcrumbName: '帮助列表'
+    breadcrumbName: '组织列表'
   }
 ];
 @connect(({}) => ({}))
-class HelpCenter extends Component {
+class Organization extends Component {
   state = {};
 
   render() {
     return (
       <Fragment>
-        <HeaderLink routes={routes} />
+        <HeaderLink routes={routes} type="organization" />
         <List />
       </Fragment>
     );
   }
 }
 
-export default HelpCenter;
+export default Organization;
