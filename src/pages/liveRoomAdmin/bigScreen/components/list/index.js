@@ -34,7 +34,7 @@ class LiveList extends Component {
         ? item.download_url.replace(reg, '/video')
         : item.download_url;
     var hls = new Hls();
-    console.log(url);
+    console.log('url', url);
     hls.loadSource(
       '/video/miniapp/zegotest-803858156-live_stram_idw6TqC/playlist.m3u8'
     );
@@ -71,7 +71,7 @@ class LiveList extends Component {
                   xl={10}
                 >
                   <div className={styles.imgPanel}>
-                    <VideoPlayer rtmp_url={item.rtmp_url} />
+                    <VideoPlayer id={item.id} rtmp_url={item.rtmp_url} />
                   </div>
                 </Col>
               </Tooltip>
