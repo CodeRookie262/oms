@@ -15,25 +15,36 @@ const routes = [
     breadcrumbName: '首页'
   },
   {
-    path: '/help',
-    breadcrumbName: '帮助中心'
+    path: '/bigScreen',
+    breadcrumbName: '直播间管理'
   },
   {
-    breadcrumbName: '帮助列表'
+    breadcrumbName: '直播大屏'
   }
 ];
-@connect(({}) => ({}))
-class HelpCenter extends Component {
+@connect(({ bigScreen }) => ({ ...bigScreen }))
+class BigScreen extends Component {
   state = {};
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'bigScreen/getBigSreenList',
+      payload: {
+        pageSize: 3,
+        page: 1,
+        key: 2
+      }
+    });
+  }
 
   render() {
+    const { bigSreenList } = this.props;
     return (
       <Fragment>
         <HeaderLink routes={routes} />
-        <List />
+        <List currentBigSreenList={bigSreenList} />
       </Fragment>
     );
   }
 }
 
-export default HelpCenter;
+export default BigScreen;

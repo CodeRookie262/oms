@@ -1,3 +1,14 @@
+const MenuIcon = ({ imgStyle, imgSrc }) => (
+  <Icon
+    component={() => (
+      <img
+        style={{ width: '1em', height: '1em', ...imgStyle }}
+        src={`${imgSrc}`}
+        alt="icon"
+      />
+    )}
+  />
+);
 export default [
   {
     path: '/',
@@ -64,13 +75,44 @@ export default [
           { path: '/', redirect: '/releaseCenter/help' },
           {
             name: 'release-center',
-            icon: 'video-camera',
-            path: '/releaseCenter',
+            icon: 'question-circle',
+            path: '/releaseCenter/help',
             routes: [
               {
                 name: 'help',
                 path: '/releaseCenter/help',
                 component: './releaseCenter/helpCenter'
+              }
+            ]
+          },
+          {
+            name: 'organizational-management',
+            icon: 'question-circle',
+            path: '/organizationalManagement',
+            routes: [
+              {
+                name: 'organizational-list',
+                path: '/organizationalManagement/list',
+                component: './organizationalManagement/organizational'
+              },
+              {
+                name: 'organizational-create',
+                path: '/organizationalManagement/create',
+                component: './organizationalManagement/createOrganization',
+                hideInMenu: true
+              }
+            ]
+          },
+          {
+            name: 'live-room-admin',
+            icon: 'video-camera',
+
+            path: '/liveRoomAdmin/bigScreen',
+            routes: [
+              {
+                name: 'bigScreen',
+                path: '/liveRoomAdmin/bigScreen',
+                component: './liveRoomAdmin/bigScreen'
               }
             ]
           },

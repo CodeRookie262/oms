@@ -1,34 +1,25 @@
 {
   "compilerOptions": {
-    "outDir": "build/dist",
-    "module": "esnext",
-    "target": "esnext",
-    "lib": ["esnext", "dom"],
+    "target": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "sourceMap": true,
-    "baseUrl": ".",
-    "jsx": "react",
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": true,
     "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
     "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "noImplicitAny": true,
+    "strictNullChecks": false,
+    "emitDecoratorMetadata": true
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts",
-    "tslint:latest",
-    "tslint-config-prettier"
-  ]
+  "exclude": ["node_modules", "lib", "es"],
+  "include": ["./src/**/*"]
 }

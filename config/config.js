@@ -136,10 +136,15 @@ export default {
   },
   chainWebpack: webpackPlugin,
   proxy: {
-    "/api/": {
-      target: "http://v3.yingliboke.cn/",
+    '/api/': {
+      target: 'http://beta.yingliboke.cn/',
       changeOrigin: true,
-      pathRewrite: { "^/api": "/api" }
+      pathRewrite: { '^/api': '/api' }
+    },
+    '/video': {
+      target: 'http://hls.wsdemo.zego.im',
+      changeOrigin: true,
+      pathRewrite: { '^/video': '' }
     }
   }
 };

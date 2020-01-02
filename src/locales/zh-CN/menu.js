@@ -39,6 +39,11 @@ export default {
   'menu.exception.server-error': '500',
 
   // 页面菜单中文配置
-  'menu.release-center': '发布管理中心',
-  'menu.release-center.help': '帮助中心'
+  'menu.release-center': '帮助中心',
+  'menu.release-center.help': '帮助列表',
+  'menu.organizational-management': '组织管理',
+  'menu.organizational-management.organizational-list': '组织',
+  'menu.organizational-management.organizational-create': '创建组织',
+  'menu.live-room-admin': '直播间管理',
+  'menu.live-room-admin.bigScreen': '直播大屏'
 };
