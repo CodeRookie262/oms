@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Link from 'umi/link';
 import router from 'umi/router';
 import { connect } from 'dva';
@@ -34,7 +34,6 @@ class Organization extends Component {
   render() {
     return (
       <div style={{ width: '100%' }}>
-        {/* <Fragment> */}
         <HeaderLink routes={routes} createBtn='create' />
         <div className={styles.tabsContainer}>
           <Tabs
@@ -48,7 +47,6 @@ class Organization extends Component {
             </TabPane>
           </Tabs>
         </div>
-        {/* </Fragment> */}
 
       </div>
     );
