@@ -1,14 +1,16 @@
 import React, { Component, Fragment } from 'react';
 import Link from 'umi/link';
 import router from 'umi/router';
-import {} from 'antd';
 import { connect } from 'dva';
 import Iconfont from '@/components/Iconfont';
 import styles from './index.less';
-
 import HeaderLink from '../../../components/HeaderLink';
 import List from './components/list/index.js';
 
+import {
+  Tabs
+} from 'antd';
+const { TabPane } = Tabs;
 const routes = [
   {
     path: '/',
@@ -22,16 +24,33 @@ const routes = [
     breadcrumbName: '组织列表'
   }
 ];
-@connect(({}) => ({}))
+@connect(({ }) => ({}))
 class Organization extends Component {
-  state = {};
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
   render() {
     return (
-      <Fragment>
-        <HeaderLink routes={routes} type="organization" />
-        <List />
-      </Fragment>
+      <div style={{ width: '100%' }}>
+        {/* <Fragment> */}
+        <HeaderLink routes={routes} createBtn='create' />
+        <div className={styles.tabsContainer}>
+          <Tabs
+            defaultActiveKey="1"
+          >
+            <TabPane tab="现存组织" key="1">
+              <List />
+            </TabPane>
+            <TabPane tab="已删除组织" key="2">
+              已删除组织
+            </TabPane>
+          </Tabs>
+        </div>
+        {/* </Fragment> */}
+
+      </div>
     );
   }
 }

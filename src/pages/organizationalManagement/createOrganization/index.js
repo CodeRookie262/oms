@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Link from 'umi/link';
 import router from 'umi/router';
-import {} from 'antd';
+import { } from 'antd';
 import { connect } from 'dva';
 import Iconfont from '@/components/Iconfont';
 import styles from './index.less';
@@ -22,16 +22,18 @@ const routes = [
     breadcrumbName: '创建组织'
   }
 ];
-@connect(({}) => ({}))
+@connect(({ }) => ({}))
 class Organization extends Component {
   state = {};
 
   render() {
     return (
-      <Fragment>
-        <HeaderLink routes={routes} />
-        <List />
-      </Fragment>
+      <div>
+        <Fragment>
+          <HeaderLink routes={routes} />
+          <List />
+        </Fragment>
+      </div>
     );
   }
 }
