@@ -2,10 +2,10 @@
   background-color: #F0F2F5;
   margin-top: -16px;
   padding: 24px;
-  height:65vh;
+  height:71.111vh;
   .groupList{
     background-color:#ffffff;
-    height: 100px;
+    // height: 100px;
     .conditionQuery{
       display: flex;
       justify-content: space-between;
@@ -15,6 +15,67 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+      }
+    }
+    .organizationList{
+      padding: 0 32px;
+    }
+    .operation{
+      color:#e9e9e9;
+      font-size: 14px;
+      .opBlock{
+        color: #0d6fde;
+        cursor: pointer;
+        &:hover{
+          color: #4a9fff;
+        }
+      }
+      .delete{
+        color: #0d6fde;
+        cursor: pointer;
+        &:hover{
+          color: #f5222d;
+        }
+      }
+    }
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      position: relative;
+      display: inline-block;
+      margin-right: 10px;
+    }
+    .not{
+      background-color: #ffa301;
+    }
+    .bein{
+      background-color: #1890ff;
+    }
+    .Error{
+      background-color: #f5222d;
+    }
+    .succeed{
+      background-color: #52c41a;
+    }
+    .freeze{
+      background-color: rgba(0, 0, 0, 0.25);
+    }
+    .footer{
+      padding: 20px 30px;
+      .footerPage {
+        display: flex;
+        justify-content: flex-end;
+      }
+      .footerTotal {
+        line-height: 2.3;
+        margin: 0 0 0 10px;
+      }
+    } 
+    .organizationName{
+      cursor: pointer;
+      &:hover{
+        color: #0d6fde;
       }
     }
   }
