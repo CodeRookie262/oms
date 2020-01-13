@@ -33,6 +33,7 @@ class EmailReg extends Component {
   }
 
   forCode = obj => {
+    console.log('obj===', obj)
     // 发送请求
     this.setState({ getCodeBtn: true });
     this.props.dispatch({
@@ -73,7 +74,6 @@ class EmailReg extends Component {
     e.preventDefault();
 
     this.props.form.validateFields(["email"], (err, values) => {
-      console.log(values);
       if (!err) {
         this.forCode({ send_type: 1, email: values.email });
       }

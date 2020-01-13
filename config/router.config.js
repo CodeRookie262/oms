@@ -102,6 +102,51 @@ export default [
                 hideInMenu: true
               }
             ]
+          }, {
+            name: 'system-journal',
+            icon: 'question-circle',
+            path: '/systemJournal',
+            routes: [
+              {
+                name: 'operation-journal',
+                path: '/systemJournal/operationJournal',
+                component: './systemJournal/operationJournal'
+              },
+              {
+                name: 'event-detail',
+                path: '/systemJournal/eventDetail/:id',
+                component: './systemJournal/eventDetail',
+                hideInMenu: true
+              }
+            ]
+          }, {
+            name: 'system-setting',
+            icon: 'question-circle',
+            path: '/systemSetting',
+            routes: [
+              {
+                name: 'discount-time',
+                path: '/systemSetting/discountTime',
+                component: './systemSetting/discountTime'
+              },
+              {
+                name: 'live-parameter',
+                path: '/systemSetting/liveParameter',
+                component: './systemSetting/liveParameter',
+                // hideInMenu: true
+              }
+            ]
+          }, {
+            name: 'complaint-advice',
+            icon: 'question-circle',
+            path: '/complaintAdvice/complaint',
+            routes: [
+              {
+                name: 'complaint-list',
+                path: '/complaintAdvice/complaint',
+                component: './complaintAdvice/complaint'
+              },
+            ]
           },
           {
             name: 'live-room-admin',
