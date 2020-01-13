@@ -42,7 +42,7 @@ class UserLogin extends Component {
   };
 
   render() {
-    const { getFieldDecorator } = this.props.form;
+    const { getFieldDecorator} = this.props.form;
     const { loadingLogin } = this.props.user;
 
     return (

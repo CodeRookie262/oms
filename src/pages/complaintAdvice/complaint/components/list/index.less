@@ -1,0 +1,122 @@
+.table {
+    padding: 24px;
+
+    .complaintAdvice {
+        background: #fff;
+        padding: 24px 32px;
+        min-height: 450px;
+        border-radius: 2px;
+        position: relative;
+        box-sizing: content-box;
+        // background-color: #F0F2F5;
+
+        .footer {
+            position: absolute;
+            bottom: 24px;
+            right: 32px;
+            display: flex;
+        }
+
+        .ant_description {
+            width: 195px;
+            width: 150px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .footer_all {
+            line-height: 34px;
+            height: 34px;
+        }
+
+        tr {
+            height: 54px;
+        }
+
+        .operation_item {
+            color: #0d6fde;
+            font-size: 14px;
+        }
+
+
+
+    }
+}
+
+.complaintAdvice_table {
+    :global {
+        .ant-table-thead {
+            height: 54px;
+            background-color: #fbfbfb;
+            border-radius: 4px;
+
+            .ant-table-header-column {
+                height: 22px;
+                font-size: 14px;
+                font-weight: normal;
+                line-height: 22px;
+                color: #2e313c;
+            }
+
+            .ant-table-row {
+                height: 54px;
+                color: #495b70;
+            }
+        }
+    }
+}
+
+.customModal {
+    :global {
+        .ant-modal-body {
+            height: 419px;
+            padding: 30px 52px 40px 52px;
+        }
+    }
+
+}
+
+.customModal_item {
+    .customModal_title {
+        text-align: center;
+        color: #2e313c;
+        font-size: 20px;
+        font-family: PingFangSC-Medium;
+        line-height: 24px;
+        height: 24px;
+    }
+
+    .ping {
+        margin-top: 50px;
+        height: 262px;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            display: none
+        }
+    }
+
+    .customModal_description,
+    .customModal_phone,
+    .customModal_account,
+    .customModal_time {
+        margin-top: 10px;
+        color: #495b70;
+        font-size: 14px;
+        height: 22px;
+        line-height: 22px;
+    }
+
+    span {
+        color: #495b70;
+        font-size: 14px;
+        height: 22px;
+        line-height: 22px;
+
+    }
+}
+
+.operation_item {
+    cursor: pointer;
+}
