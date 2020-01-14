@@ -4,19 +4,93 @@
     .discount_item {
         padding: 24px;
         background: #fff;
+        position: relative;
     }
 }
 
 .customModal {
     :global {
-        .ant-modal-body {
-            height: 400px;
+        .ant-modal-content {
+            width: 694px;
+            height: 457px;
         }
     }
 
     .addModal {
+
+
         h2 {
             text-align: center;
+        }
+
+        .addBottom {
+            margin: 50px 0 60px 0;
+            border-bottom: 1px solid #e1e7ef;
+
+            .limitedTime,
+            .effectDate,
+            .discountTime,
+            .relNumber {
+                display: flex;
+
+                .limit_title,
+                .effect_title,
+                .discount_time,
+                .reduce_num {
+                    width: 122px;
+                    text-align: right;
+                    font-size: 14px;
+                    height: 22px;
+                    line-height: 22px;
+                    margin-right: 8px;
+                }
+
+                :global {
+                    .ant-calendar-picker {
+                        width: 230px;
+                        height: 32px;
+                        border-radius: 4px;
+                        border: solid 1px #e1e7ef;
+                    }
+
+                    .ant-time-picker {
+                        width: 100px;
+                        height: 32px;
+                        border-radius: 4px;
+                        border: solid 1px #e1e7ef;
+                    }
+
+                    .ant-select-selection {
+                        width: 178px;
+                        height: 32px;
+                        background-color: #ffffff;
+                        border-radius: 4px;
+                        border: solid 1px #e1e7ef;
+                    }
+                }
+            }
+
+            .effectDate,
+            .discountTime,
+            .relNumber {
+                margin-top: 24px;
+            }
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 0;
+            height: 90px;
+            line-height: 90px;
+            display: flex;
+            justify-content: flex-end;
+            // .ComeBack {
+            //     float: right;
+            // }
+
+            // .ComeSave {
+            //     float: right;
+            // }
         }
 
     }

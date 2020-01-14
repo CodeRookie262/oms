@@ -63,30 +63,36 @@ const columns = [
     {
         title: '操作人ID',
         dataIndex: 'id',
-        key: 'id'
+        key: 'id',
+        width: '80'
     },
     {
         title: '操作人手机号',
         dataIndex: 'phone',
-        key: 'phone'
+        key: 'phone',
+        width: '156'
     },
     {
         title: '操作人昵称',
         dataIndex: 'nickname',
-        key: 'nickname'
+        key: 'nickname',
+        width: '198'
     }, {
         title: '操作时间',
         dataIndex: 'time',
         key: 'time',
+        width: '103',
         render: text => <span>{moment(text).format('YYYY-MM-DD HH:mm')}</span>
     }, {
         title: '事件类型',
         dataIndex: 'type',
-        key: 'type'
+        key: 'type',
+        width: '121'
     }, {
         title: '事件',
         dataIndex: 'event',
-        key: 'event'
+        key: 'event',
+        width: '169'
     }
 ];
 
@@ -101,15 +107,13 @@ class OperationJournal extends Component {
 
         };
     }
-    请求列表
-    
+    // 请求列表
     componentDidMount() {
         this.props.dispatch({
             type: 'operationJournal/getOperationJournalList',
             payload: {
                 page: 1,
                 pageSize: 5
-
             },
             callback: res => {
                 console.log(res)
@@ -151,61 +155,75 @@ class OperationJournal extends Component {
     render() {
         return (
             <div className={styles.componentJournal}>
-                <div className={styles.operation}>
-                    <Select
-                        className={styles.operation_select}
-                        showSearch
-                        style={{ width: 200 }}
-                        placeholder="事件类型"
-                        optionFilterProp="children"
-                        filterOption={(input, option) =>
-                            option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                        }
-                        onSelect={this.handleSelect}
-                    >
-                        <Option value="全部">全部</Option>
-                        <Option value="登录">登录</Option>
-                        <Option value="退出">退出</Option>
-                        <Option value="increased">新增</Option>
-                        <Option value="change">修改</Option>
-                        <Option value="delete">删除</Option>
-                    </Select>
-                    <Search
-                        placeholder="操作人手机号码"
-                        onSearch={value => this.handleSearch(value)}
-                        style={{ width: 200 }}
-                        className={styles.operation_search}
-                    />
-                    <RangePicker
-                        defaultValue={[moment('2010/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
-                        format={dateFormat}
-                    />
-                    <Table
-                        dataSource={dataSource}
-                        columns={columns}
-                        className={styles.operation_list}
-                        pagination={false}
-                        rowKey={record => record.id}
-                        onRow={(record, item) => {
-                            return {
-                                onClick: event => {
-                                    event.persist()
-                                    router.push(`/systemJournal/eventDetail/${item}`);
-                                }, // 点击行
-                            };
-                        }}
-                    // onClick={this.handleDetail}
-                    />
-                    <Pagination
-                        defaultCurrent={1}
-                        defaultPageSize={10}
-                        showSizeChanger={true}
-                        showQuickJumper={true}
-                        onShowSizeChange={this.onShowSizeChange}
-                        className={styles.pagination}
-                    />
+                <div className={styles.operation} >
+                    <div className={styles.operation_top}>
+                        <div className={styles.dataSelect}>
+                            <span>事件类型:</span>
+                            <Select
+                                className={styles.operation_select}
+                                showSearch
+                                style={{ width: 200 }}
+                                placeholder="事件类型"
+                                optionFilterProp="children"
+                                filterOption={(input, option) =>
+                                    option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                }
+                                onSelect={this.handleSelect}
+                            >
+                                <Option value="全部">全部</Option>
+                                <Option value="登录">登录</Option>
+                                <Option value="退出">退出</Option>
+                                <Option value="increased">新增</Option>
+                                <Option value="change">修改</Option>
+                                <Option value="delete">删除</Option>
+                            </Select>
+                        </div>
+
+                        <div className={styles.dataPicker}>
+                            <span>时间范围:</span>
+                            <RangePicker
+                                defaultValue={[moment('2010/01/01', dateFormat), moment('2015/01/01', dateFormat)]}
+                                format={dateFormat}
+                            />
+                        </div>
+                        <div className={styles.dataSearch}>
+                            <Search
+                                placeholder="操作人手机号码"
+                                onSearch={value => this.handleSearch(value)}
+                                style={{ width: 200 }}
+                                className={styles.operation_search}
+                            />
+                        </div>
+                    </div>
+                    <div className={styles.operation_bottom}>
+                        <Table
+                            dataSource={dataSource}
+                            columns={columns}
+                            className={styles.operation_list}
+                            pagination={false}
+                            rowKey={record => record.id}
+                            onRow={(record, item) => {
+                                return {
+                                    onClick: event => {
+                                        event.persist()
+                                        router.push(`/systemJournal/eventDetail/${item}`);
+                                    }, // 点击行
+                                };
+                            }}
+                        // onClick={this.handleDetail}
+                        />
+                        <Pagination
+                            defaultCurrent={1}
+                            defaultPageSize={10}
+                            showSizeChanger={true}
+                            showQuickJumper={true}
+                            onShowSizeChange={this.onShowSizeChange}
+                            className={styles.pagination}
+                        />
+                    </div>
                 </div>
-            </div>
+
+            </div >
         );
     }
 }
