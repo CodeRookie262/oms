@@ -133,7 +133,15 @@ export default [
                 name: 'live-parameter',
                 path: '/systemSetting/liveParameter',
                 component: './systemSetting/liveParameter',
-                // hideInMenu: true
+                routes: [
+                  {
+                    path: '/systemSetting/liveParameter/Preview',
+                    component: './systemSetting/liveParameter/components/Preview'
+                  }, {
+                    path: '/systemSetting/liveParameter/createEdit',
+                    component: './systemSetting/liveParameter/components/createEdit'
+                  }
+                ]
               }
             ]
           }, {

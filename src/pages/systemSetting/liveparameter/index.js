@@ -7,7 +7,8 @@ import styles from './index.less';
 
 import HeaderLink from '../../../components/HeaderLink';
 import Preview from './components/Preview/index.js'
-// import createEdit from './components/createEdit/index.js'
+import createEdit from './components/createEdit/index.js'
+
 const routes = [
     {
         path: '/',
@@ -30,11 +31,16 @@ class LiveParaMeter extends Component {
 
     render() {
         return (
-            <Fragment>
-                <HeaderLink routes={routes} />
-                {/* {this.state.status ? <Preview /> : <createEdit />} */}
-                <Preview />
-            </Fragment>
+
+            <>
+                <Fragment>
+                    <HeaderLink routes={routes} />
+                    {/* {this.state.status ? <Preview /> : <createEdit />} */}
+
+                <Preview></Preview>
+                </Fragment>
+                {/* < createEdit /> */}
+            </>
         );
 
 

@@ -32,19 +32,22 @@ class createEdit extends Component {
                 }
                 : null;
         return (
-            <div>
-                <Form layout={formLayout}>
-                    <Form.Item label="Field A" {...formItemLayout}>
-                        <Input placeholder="input placeholder" />
-                    </Form.Item>
-                    <Form.Item label="Field B" {...formItemLayout}>
-                        <Input placeholder="input placeholder" />
-                    </Form.Item>
-                    <Form.Item {...buttonItemLayout}>
-                        <Button type="primary">Submit</Button>
-                    </Form.Item>
-                </Form>
+            <div className={styles.remarder}>
+                <div className={styles.preparation}>
+                    <Form layout={formLayout}>
+                        <Form.Item label="Field A" {...formItemLayout}>
+                            <Input placeholder="input placeholder" />
+                        </Form.Item>
+                        <Form.Item label="Field B" {...formItemLayout}>
+                            <Input placeholder="input placeholder" />
+                        </Form.Item>
+                        <Form.Item {...buttonItemLayout}>
+                            <Button type="primary">Submit</Button>
+                        </Form.Item>
+                    </Form>
+                </div>
             </div>
         )
     }
 }
+export default createEdit

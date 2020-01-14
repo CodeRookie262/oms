@@ -60,12 +60,8 @@ const options = [
     { label: 'Saturday', value: 'Saturday' },
     { label: 'Sunday', value: 'Sunday' },
 ];
-function onChange(date, dateString) {
-    console.log(date, dateString);
-}
-function handleChange(value) {
-    console.log(`selected ${value}`);
-}
+// 
+
 const success = () => {
     message.success('This is a success message');
 };
@@ -80,7 +76,20 @@ class DiscountTable extends Component {
             loading: true,
             // 弹窗销毁
             removeLoading: false,
-            // datas: []
+            // 开始时间 
+            start_time: '',
+            //结束时间
+            end_time: '',
+            // 折扣
+            discount_number: '',
+            // 计算秒数
+            timer_start: '',
+            timer_end: '',
+            // 开始日期
+            start_date: '',
+            // 结束日期
+            end_date: ''
+
         };
     }
     // 新增规则
@@ -127,16 +136,46 @@ class DiscountTable extends Component {
 
             }
         });
+    }
 
-        // modal.destroy();
-        // browserHistory.listen(() => {
-        //     Modal.destroyAll();
-        // });
+    startTime = (time, timeString) => {
+        // console.log(timeString);
+        let Time_start = timeString;
+        this.setState({
+            start_time: Time_start,
+
+        })
+    }
+    endTime = (time, timeString) => {
+        let Time_end = timeString
+        console.log(this)
+        this.setState({
+            end_time: Time_end
+        })
+    }
+    isCheck = (checkedValues) => {
+        // console.log(checkedValues)
+    }
+    //基数选择
+    handleChange = (value) => {
+        let discount = value;
+        this.setState({
+            discount_number: discount
+        })
+    }
+    handleDate = (date, dateString) => {
+        let Date_start = dateString[0];
+        let Date_end = dateString[1];
+        this.setState({
+            start_date: Date_start,
+            end_date: Date_end
+        })
     }
     // 新增规则
     newRule = () => {
-        let startTime = document.getElementsByClassName('start_time')[0]
-        console.log(startTime)
+        let { start_time, end_time, discount_number, timer_start, timer_end, start_date, end_date } = this.state
+        timer_end = end_time.split(":").reduce((a, b, i) => a + b * [60 * 60, 60, 1][i], 0)
+        timer_start = start_time.split(":").reduce((a, b, i) => a + b * [60 * 60, 60, 1][i], 0)
     }
     render() {
         const columns = [
@@ -144,23 +183,29 @@ class DiscountTable extends Component {
                 title: '序号',
                 dataIndex: 'number',
                 render: text => <a>{text}</a>,
+                width: '106'
             },
             {
                 title: '有效期',
                 dataIndex: 'time',
+                width: '237'
             },
             {
                 title: '生效日',
                 dataIndex: 'effective_date',
+                width: '340'
             }, {
                 title: '优惠时段',
-                dataIndex: 'discount_data'
+                dataIndex: 'discount_data',
+                width: '138'
             }, {
                 title: '场次扣除次数',
-                dataIndex: 'session'
+                dataIndex: 'session',
+                width: '141'
             }, {
                 title: '操作',
                 dataIndex: 'operation',
+                width: '123',
                 render: (text, record, index) => (
                     <span>
                         <Button type="primary">编辑</Button>
@@ -183,37 +228,39 @@ class DiscountTable extends Component {
                         className={styles.customModal}
                         onCancel={this.handleCancel}
                         maskClosable={true}
-                        closable={false}
                         footer={null}
-                        width={700}
                     >
                         <div className={styles.addModal}>
                             <h2>新增规则</h2>
-                            <div className={styles.limitedTime}>
-                                <span>有效期:</span>
-                                <RangePicker onChange={onChange} />
-                            </div>
-                            <div className={styles.effectDate}>
-                                <span>生效日:</span>
-                                <Checkbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
-                            </div>
-                            <div className={styles.discountTime}>
-                                <span>优惠时段:</span>
-                                <TimePicker format={format} placeholder="开始时间" className='start_time' />~
-                                <TimePicker format={format} placeholder="结束时间" />
-                            </div>
-                            <div className={styles.relNumber}>
-                                <span>扣除基数:</span>
-                                <Select style={{ width: 120 }} onChange={handleChange} placeholder="请选择场次扣除基数">
-                                    {
-                                        optionsData.length && optionsData.map((item, index) => (
-                                            <Select.Option key={index} value={item}>{item}</Select.Option>)
-                                        )
-                                    }
-                                </Select>
+                            <div className={styles.addBottom}>
+                                <div className={styles.limitedTime}>
+                                    <span className={styles.limit_title}>有效期:</span>
+                                    <RangePicker onChange={this.handleDate} />
+                                </div>
+                                <div className={styles.effectDate}>
+                                    <span className={styles.effect_title}>生效日:</span>
+                                    <Checkbox.Group options={plainOptions} onChange={this.isCheck} />
+                                </div>
+                                <div className={styles.discountTime}>
+                                    <span className={styles.discount_time}>优惠时段:</span>
+                                    <TimePicker format={format} placeholder="开始时间" onChange={this.startTime} />~
+                                <TimePicker format={format} placeholder="结束时间" onChange={this.endTime} />
+                                </div>
+                                <div className={styles.relNumber}>
+                                    <span className={styles.reduce_num}>扣除基数:</span>
+                                    <Select style={{ width: 120 }} onChange={this.handleChange} placeholder="请选择场次扣除基数">
+                                        {
+                                            optionsData.length && optionsData.map((item, index) => (
+                                                <Select.Option key={index} value={item}>{item}</Select.Option>)
+                                            )
+                                        }
+                                    </Select>
+                                </div>
+
                             </div>
                             <div className={styles.footer}>
-                                <Button type="primary" onClick={this.newRule}>新增</Button>
+                                <Button type="primary" onClick={this.newRule} className={styles.ComeBack}>返回</Button>
+                                <Button type="primary" onClick={this.NewSave} className={styles.ComeSave}>保存</Button>
                             </div>
                         </div>
                     </Modal>
