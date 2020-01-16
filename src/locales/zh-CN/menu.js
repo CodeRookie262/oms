@@ -50,5 +50,13 @@ export default {
   'menu.organizational-management.organizational-list': '组织',
   'menu.organizational-management.organizational-create': '创建组织',
   'menu.live-room-admin': '直播间管理',
-  'menu.live-room-admin.bigScreen': '直播大屏'
+  'menu.live-room-admin.bigScreen': '直播大屏',
+  'menu.system-journal': '系统日志',
+  'menu.system-journal.operation-journal': '操作日志',
+  'menu.system-journal.event-detail': '事件详情',
+  'menu.system-setting': '系统设置',
+  'menu.system-setting.discount-time': '优惠时段',
+  'menu.system-setting.live-parameter': '直播参数',
+  'menu.complaint-advice': '投诉建议',
+  'menu.complaint-advice.complaint-list': '投诉建议列表'
 };

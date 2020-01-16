@@ -41,6 +41,10 @@ class HelpHeader extends Component {
               创建套餐
             </Button>
           </Link>}
+          {
+            this.props.button && this.props.button
+            /*新增按钮组件,为了后续的更多自定义操作,采取组件传值*/
+          }
         </div>
       </div>
     );
