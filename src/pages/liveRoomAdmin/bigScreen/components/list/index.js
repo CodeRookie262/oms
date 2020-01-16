@@ -52,7 +52,7 @@ class LiveList extends Component {
   }
   render() {
     const { currentBigSreenList } = this.props;
-    console.log('currentBigSreenList==============', currentBigSreenList);
+    // console.log('currentBigSreenList==============', currentBigSreenList);
 
     return (
       <div className={styles.panel}>

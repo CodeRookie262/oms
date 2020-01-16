@@ -91,6 +91,7 @@ class HelpList extends Component {
     return (
       <div className={style.financial}>
         <Table
+          rowKey={(text, record) => text.id}
           className={style['ant-table-wrapper']}
           dataSource={dataSource}
           scroll={{ y: '560px' }}

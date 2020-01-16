@@ -82,6 +82,7 @@ export default [{
           path: '/',
           redirect: '/releaseCenter/help'
         },
+        //帮助
         {
           name: 'release-center',
           icon: 'question-circle',
@@ -92,6 +93,7 @@ export default [{
             component: './releaseCenter/helpCenter'
           }]
         },
+        //组织管理
         {
           name: 'organizational-management',
           icon: 'question-circle',
@@ -109,9 +111,48 @@ export default [{
             }
           ]
         },
+        //系统设置
+        {
+          name: 'system-setting',
+          icon: 'question-circle',
+          path: '/systemSetting',
+          routes: [{
+              name: 'discount-time',
+              path: '/systemSetting/discountTime',
+              component: './systemSetting/discountTime'
+            },
+            {
+              name: 'live-parameter',
+              path: '/systemSetting/liveParameter',
+              component: './systemSetting/liveParameter',
+              routes: [{
+                path: '/systemSetting/liveParameter/Preview',
+                component: './systemSetting/liveParameter/components/Preview'
+              }, {
+                path: '/systemSetting/liveParameter/createEdit',
+                component: './systemSetting/liveParameter/components/createEdit'
+              }]
+            }
+          ]
+        },
+        {
+          name: 'complaint-advice',
+          icon: 'question-circle',
+          path: '/complaintAdvice/complaint',
+          routes: [{
+              name: 'complaint-list',
+              path: '/complaintAdvice/complaint',
+              component: './complaintAdvice/complaint'
+            },
+
+
+          ]
+        },
+        //直播大屏
         {
           name: 'live-room-admin',
           icon: 'video-camera',
+
           path: '/liveRoomAdmin/bigScreen',
           routes: [{
             name: 'bigScreen',
@@ -119,6 +160,25 @@ export default [{
             component: './liveRoomAdmin/bigScreen'
           }]
         },
+        //系统日志
+        {
+          name: 'system-journal',
+          icon: 'question-circle',
+          path: '/systemJournal',
+          routes: [{
+              name: 'operation-journal',
+              path: '/systemJournal/operationJournal',
+              component: './systemJournal/operationJournal'
+            },
+            {
+              name: 'event-detail',
+              path: '/systemJournal/eventDetail/:id',
+              component: './systemJournal/eventDetail',
+              hideInMenu: true
+            }
+          ]
+        },
+        //套餐管理
         {
           name: 'financial-management',
           icon: 'question-circle',

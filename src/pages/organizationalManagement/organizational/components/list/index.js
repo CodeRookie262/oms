@@ -138,40 +138,40 @@ class HelpList extends Component {
       page,
       pageSize
     } = this.state;
-    let dataSource = [
-      {
-        id: 1,
-        name: "腾讯",
-        status: 0,
-        apply_status: 3,
-        create_time: "2020-01-09 14:48:43",
-        update_time: "2020-01-09 14:48:43",
-        expire_time: null,
-        setmeal: 'A 套餐',
-        concurrence: 500,
-        session: 20
-      },
-      {
-        id: 2,
-        name: "网易",
-        status: 1,
-        apply_status: 3,
-        create_time: "2020-01-09 14:48:58",
-        update_time: "2020-01-09 15:06:08",
-        expire_time: null,
-        setmeal: '',
-        concurrence: '',
-        session: ''
-      }
-    ]
-    dataSource = dataSource.map((el, i) => {
-      for (var i in el) {
-        if (el[i] === "") {
-          el[i] = "—"
-        }
-      }
-      return el
-    })
+    // let dataSource = [
+    //   {
+    //     id: 1,
+    //     name: "腾讯",
+    //     status: 0,
+    //     apply_status: 3,
+    //     create_time: "2020-01-09 14:48:43",
+    //     update_time: "2020-01-09 14:48:43",
+    //     expire_time: null,
+    //     setmeal: 'A 套餐',
+    //     concurrence: 500,
+    //     session: 20
+    //   },
+    //   {
+    //     id: 2,
+    //     name: "网易",
+    //     status: 1,
+    //     apply_status: 3,
+    //     create_time: "2020-01-09 14:48:58",
+    //     update_time: "2020-01-09 15:06:08",
+    //     expire_time: null,
+    //     setmeal: '',
+    //     concurrence: '',
+    //     session: ''
+    //   }
+    // ]
+    // dataSource = dataSource.map((el, i) => {
+    //   for (var i in el) {
+    //     if (el[i] === "") {
+    //       el[i] = "—"
+    //     }
+    //   }
+    //   return el
+    // })
     const columns = [
       {
         title: <span style={{ fontWeight: 'bold' }}>组织名称</span>,
@@ -322,7 +322,7 @@ class HelpList extends Component {
           <div className={styles.organizationList}>
             <Table
               columns={columns}
-              dataSource={dataSource}
+              // dataSource={dataSource}
               rowKey={(text, record) => text.id}
               pagination={false}
               onChange={this.handleTableChange}

@@ -47,6 +47,7 @@ const UserModel = {
         payload: true
       });
       const response = yield call(getCaptcha, payload);
+      console.log('response===', response)
       if (response.code === 20000) {
         callback(response);
       } else if (response.code === 20011) {
