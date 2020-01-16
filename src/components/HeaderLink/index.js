@@ -14,7 +14,7 @@ class HelpHeader extends Component {
   }
 
   render() {
-    const { routes, createBtn } = this.props;
+    const { routes, createBtn, createFinancial } = this.props;
     const itemRender = (route, params, routes, paths) => {
       const last = routes.indexOf(route) === routes.length - 1;
       return last ? (
@@ -34,6 +34,11 @@ class HelpHeader extends Component {
           {createBtn && <Link to="/organizationalManagement/create">
             <Button style={{ width: '118px', height: '40px' }} type="primary" size="large">
               创建组织
+            </Button>
+          </Link>}
+          {createFinancial && <Link to="/financialManagement/create">
+            <Button style={{ width: '118px', height: '40px' }} type="primary" size="large">
+              创建套餐
             </Button>
           </Link>}
         </div>

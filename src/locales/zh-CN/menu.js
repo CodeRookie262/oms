@@ -41,6 +41,11 @@ export default {
   // 页面菜单中文配置
   'menu.release-center': '帮助中心',
   'menu.release-center.help': '帮助列表',
+  'menu.financial-management': '套餐管理',
+  'menu.financial-management.financial-list': '套餐列表',
+  'menu.financial-management.financial-create': '创建套餐',
+  'menu.financial-management.financial-detail': '套餐详情',
+  'menu.financial-management.financial-edit': '编辑套餐',
   'menu.organizational-management': '组织管理',
   'menu.organizational-management.organizational-list': '组织',
   'menu.organizational-management.organizational-create': '创建组织',

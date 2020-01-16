@@ -1,0 +1,58 @@
+@redColor: red !important;
+
+.picker {
+	width: 125px;
+}
+
+.pickerLeft {
+	margin-left: 15px;
+}
+
+.pickerIcon {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.date_picker_error {
+	color: @redColor;
+
+	input {
+		color: @redColor;
+	}
+
+	// background: red;
+	:global {
+
+		// .ant-calendar-picker {
+		.ant-calendar-picker-input {
+			border-color: red !important;
+		}
+
+		// }
+
+		.ant-time-picker-input {
+			border-color: red !important;
+		}
+
+		.ant-checkbox-inner {
+			// background: @redColor; 
+			border-color: @redColor;
+		}
+
+		.ant-checkbox-checked .ant-checkbox-inner {
+			background: @redColor;
+		}
+
+		.ant-checkbox-checked::after {
+			border-color: @redColor;
+		}
+	}
+}
+
+.date_picker_ok {
+	:global {
+		.ant-time-picker-input {
+			border-color: #e1e7ef !important;
+		}
+	}
+}

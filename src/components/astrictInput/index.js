@@ -18,7 +18,7 @@ class AstrictInput extends Component {
   }
   render() {
     return (
-      <div className={styles.inputContainer}>
+      <div className={styles.inputContainer} style={this.props.style || {}}>
         <input
           className={styles.inputChange}
           style={{ border: 'none', outline: 'none' }}
@@ -30,11 +30,13 @@ class AstrictInput extends Component {
               e.target.value = e.target.value.substring(0, this.props.total)
               return
             }
+
             this.props.onInput(e.target.value)
             this.setState({
               words: e.target.value.length
             })
           } : null}
+          onChange={this.props.onChange ||(() => {})}
           defaultValue={this.props.data ? this.props.data : ''}
         />
         {this.props.total && <span style={{ coloe: '#bfc6d0' }}>
